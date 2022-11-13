@@ -2,12 +2,27 @@
 <html lang="en">
 <head>
      <meta charset="UTF-8">
-     <titlle>Bиміри</title>
+     <title>Bиміри</title>
 </head>
 <body>
 <h3>Bиміри</h3>
-{% for measurement in measurements %}
-    <p>{{measurement}}</p>
-{% endfor %}
+<table>
+<head>
+	<tr>
+		<td>ID</td>
+		<td>Value</td>
+		<td>Description</td>
+	</tr>
+</head>
+<body>
+	{% for measurement in measurements %}
+	<tr>
+		<td>{{measurement.id}}</td>
+		<td>{{measurement.value}}</td>
+		<td>{{measurement.description}}</td>
+	</tr>
+	{% endfor %}
+</body>
+</table>
 </body>
 </html>

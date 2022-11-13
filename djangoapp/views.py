@@ -3,6 +3,7 @@ import os
 from django.views import generic
 from django.conf import settings
 from djangoapp.models import Measurement
+from django.shortcuts import render
 
 class MeasurementList (generic.ListView):
     model = Measurement
@@ -10,12 +11,5 @@ class MeasurementList (generic.ListView):
     template_name = 'measurement_list.html'
     
     def get(self, request, *args, **kwargs):
-        try:
-            file_path = os.path.join(settings.BASE_DIR, 'test_data')
-            measurement_file = open(file_path, 'r')
-            
-            for value in measurement_file:
-                Measurement.object.get_or_create(value=value)
-        except IOError:
-                pass
-        return super(MeasurementList, self).get(request, *args, **kwargs)
+        values = Measurement.objects.all()
+        return render(request, 'measurement_list.html', {'measurements': values})
