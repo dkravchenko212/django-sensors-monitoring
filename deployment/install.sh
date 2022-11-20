@@ -107,8 +107,7 @@ if [[ $? -eq 0 ]]; then
     echo "Starting django-sernsors-monitoring service"
     systemctl start django-sernsors-monitoring.service
     sleep 1
-    systemctl is-active --quiet django-sernsors-monitoring.service
-    if [[ $? -ne 0 ]]; then
+    if systemctl is-active --quiet django-sernsors-monitoring.service; then
         echo "Cannot start django-sernsors-monitoring server"
         systemctl status django-sernsors-monitoring.service
         exit -1
