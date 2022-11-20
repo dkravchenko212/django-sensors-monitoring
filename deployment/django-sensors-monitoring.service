@@ -1,0 +1,12 @@
+[Unit]
+Description=PIOT project using Django, nginx and uWSGI app
+
+[Service]
+User=rpi
+Group=www-data
+WorkingDirectory=/home/rpi/django-project
+Environment="PATH=/home/rpi/django-project/env/bin"
+ExecStart=/home/rpi/django-project/env/bin/uwsgi --ini uwsgi.ini
+
+[Install]
+WantedBy=multi-user.target
