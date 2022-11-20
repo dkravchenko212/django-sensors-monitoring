@@ -2,11 +2,11 @@
 Description=Sensors monitoring project using Django, nginx and uWSGI app
 
 [Service]
-User=rpi
+User=www-data
 Group=www-data
-WorkingDirectory=/home/rpi/django-project
-Environment="PATH=/home/rpi/django-project/env/bin"
-ExecStart=/home/rpi/django-project/env/bin/uwsgi --ini uwsgi.ini
+WorkingDirectory=PATH_TO_PROJECT_DIR
+Environment="PATH=PATH_TO_PROJECT_DIR/.env/bin"
+ExecStart=PATH_TO_PROJECT_DIR/.env/bin/uwsgi --ini uwsgi.ini
 
 [Install]
 WantedBy=multi-user.target
