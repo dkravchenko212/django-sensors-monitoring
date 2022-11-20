@@ -1,5 +1,5 @@
 [Unit]
-Description=PIOT project using Django, nginx and uWSGI app
+Description=Sensors monitoring project using Django, nginx and uWSGI app
 
 [Service]
 User=rpi
