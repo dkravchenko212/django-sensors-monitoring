@@ -23,3 +23,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MeasurementList.as_view(), name='measurement_list')
 ]
+
+
+#==================================================
+# Used to start scheduled jobs
+# import file or directly paste the contents of execute.py
+#==================================================
+import execute
