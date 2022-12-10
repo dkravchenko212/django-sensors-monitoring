@@ -10,7 +10,7 @@ def update_data_from_sensors():
         print("Saving measurement from DHT11")
         mr = Measurement()
         mr.sensor_name = "DHT11"
-        mr.value = "Temperature: {} Humidity: {}".format(res[0], res[0])
+        mr.value = "Temperature: {} Humidity: {}".format(res[0], res[1])
         mr.description = "sensor connected to orangepi 3 lts"
         mr.save()
         print("Done saving")
