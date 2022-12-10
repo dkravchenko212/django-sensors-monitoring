@@ -50,6 +50,11 @@
 			</div>
 		</div>
 	</main>
-	{% block relay-buttons %}
-	{% endblock relay-buttons %}
+	<form action="{% url 'switch-relay' %}" method="POST">
+		{% csrf_token %}
+		<button class="mdc-button foo-button" type="submit" name="switch-relay" value="1">
+			<div class="mdc-button__ripple"></div>
+			<span class="mdc-button__label">Switch Relay 1</span>
+		</button>
+	</form>
 {% endblock content %}
