@@ -14,10 +14,4 @@ def update_data_from_sensors():
         mr.description = "sensor connected to orangepi 3 lts"
         mr.save()
         print("Done saving")
-    print("Switching relay state OFF")
-    sensors.switch_relay(state=SwitchState.OFF)
-    time.sleep(1)
-    print("Switching relay state ON")
-    sensors.switch_relay(state=SwitchState.ON)
-    time.sleep(1)
 
