@@ -12,7 +12,7 @@ class MeasurementList (generic.ListView):
     template_name = 'measurement_list.html'
     
     def get(self, request, *args, **kwargs):
-        values = Measurement.objects.all()
+        values = Measurement.objects.all().order_by('-created')[:10]
         return render(request, 'measurement_list.html', {'measurements': values})
 
 def switch_relay(request):
