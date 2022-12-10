@@ -15,6 +15,7 @@ class SensorsService(object):
     dht_pin = 6
     relay_1_pin = 3
     relay_2_pin = 4
+    relay_state = SwitchState.ON
     
     def __new__(cls):
         if cls.instance is not None:
@@ -30,6 +31,12 @@ class SensorsService(object):
     def get_data_from_camera(self) -> Any:
         pass
     
+    def trigger_relay(self) -> None:
+        if self.relay_state.value == 1:
+            self.switch_relay(1, SwitchState.OFF)
+        else:
+            self.switch_relay(1, SwitchState.ON)
+        
     def switch_relay(self, number: int=1, state: SwitchState=SwitchState.ON) -> Any:
         res: int = -1
         if number == 1:
