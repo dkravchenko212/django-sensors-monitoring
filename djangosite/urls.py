@@ -16,13 +16,13 @@ Including another URLconf
 #from django.urls import re_path as url
 from django.contrib import admin
 from django.urls import path
-from djangoapp.views import MeasurementList
+from djangoapp.views import MeasurementList, switch_relay
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
     path('admin/', admin.site.urls),
-    path('', MeasurementList.as_view(), name='measurement_list')
-    path('switch-relay/', views.switch_relay, name='switch-relay')
+    path('', MeasurementList.as_view(), name='measurement_list'),
+    path('switch-relay/', switch_relay, name='switch-relay')
 ]
 
 

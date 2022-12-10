@@ -34,8 +34,10 @@ class SensorsService(object):
     def trigger_relay(self) -> None:
         if self.relay_state.value == 1:
             self.switch_relay(1, SwitchState.OFF)
+            self.relay_state = SwitchState.OFF
         else:
             self.switch_relay(1, SwitchState.ON)
+            self.relay_state = SwitchState.ON
         
     def switch_relay(self, number: int=1, state: SwitchState=SwitchState.ON) -> Any:
         res: int = -1

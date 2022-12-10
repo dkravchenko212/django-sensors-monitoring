@@ -4,7 +4,7 @@ from django.views import generic
 from django.conf import settings
 from djangoapp.models import Measurement
 from django.shortcuts import render,redirect, HttpResponseRedirect
-from services.sensors_service import SensorsService
+from djangoapp.services.sensors_service import SensorsService
 
 class MeasurementList (generic.ListView):
     model = Measurement
@@ -19,4 +19,4 @@ def switch_relay(request):
     if request.method == 'POST':
         sensor_service = SensorsService()
         sensor_service.trigger_relay()
-    return redirect('')
+    return redirect('measurement_list')
