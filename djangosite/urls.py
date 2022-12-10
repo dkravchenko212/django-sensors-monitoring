@@ -22,6 +22,7 @@ urlpatterns = [
     #path('admin/', admin.site.urls),
     path('admin/', admin.site.urls),
     path('', MeasurementList.as_view(), name='measurement_list')
+    path('switch-relay/', views.switch_relay, name='switch-relay')
 ]
 
 
